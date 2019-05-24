@@ -145,6 +145,9 @@
     <EmbeddedResource Include="AltaPaciente.resx">
       <DependentUpon>AltaPaciente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModificarTurno.resx">
+      <DependentUpon>ModificarTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevoTurno.resx">
       <DependentUpon>NuevoTurno.cs</DependentUpon>
     </EmbeddedResource>
