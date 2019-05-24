@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dominio.Persona">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAACAAAAAEAAAAgAAAAAEAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Persona.cs</FileName>
+      <NewMemberFileName>persona.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Telefonos">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAQ=</HashCode>
+      <FileName>Telefonos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Paciente">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Paciente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.ObraSocial">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAgAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>ObraSocial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Especialidades">
+    <Position X="6.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Especialidades.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Turnos">
+    <Position X="2.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAADAAQAAAAAABAAAAAAAASAAAAAAAgAAAAAg=</HashCode>
+      <FileName>Turnos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Medicos">
+    <Position X="6.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAACAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Medicos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Usuarios">
+    <Position X="7" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Usuarios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Horarios">
+    <Position X="2.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Horarios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Estado">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Estado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Direccion">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAEAABAAACACAAAAAAAAAAAAAABAgA=</HashCode>
+      <FileName>Direccion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E5CD774-804E-4491-AE4C-6FB31A343092}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PresentacionWinForms</RootNamespace>
+    <AssemblyName>PresentacionWinForms</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=10.9.0.1, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AltaMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaMedico.Designer.cs">
+      <DependentUpon>AltaMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarMedico.Designer.cs">
+      <DependentUpon>BuscarMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarPacientes.Designer.cs">
+      <DependentUpon>BuscarPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarMedico.Designer.cs">
+      <DependentUpon>EliminarMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarPaciente.Designer.cs">
+      <DependentUpon>EliminarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarTurno.Designer.cs">
+      <DependentUpon>EliminarTurno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaMedicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaMedicos.Designer.cs">
+      <DependentUpon>ListaMedicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AltaPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaPaciente.Designer.cs">
+      <DependentUpon>AltaPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarPaciente.Designer.cs">
+      <DependentUpon>ModificarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarTurno.Designer.cs">
+      <DependentUpon>ModificarTurno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoTurno.Designer.cs">
+      <DependentUpon>NuevoTurno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AltaMedico.resx">
+      <DependentUpon>AltaMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarMedico.resx">
+      <DependentUpon>BuscarMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaMedicos.resx">
+      <DependentUpon>ListaMedicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AltaPaciente.resx">
+      <DependentUpon>AltaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoTurno.resx">
+      <DependentUpon>NuevoTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caduceus-30591_960_720.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ap,550x550,12x12,1,transparent,t.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+      <Project>{76342a41-013d-45d4-a19d-5d527e1850b5}</Project>
+      <Name>AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary1\Negocio.csproj">
+      <Project>{58d077c8-521b-4c29-a028-4aa991e43ee2}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{d67e226d-badc-4b8c-8e8a-95bf89f04e6c}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
