@@ -68,7 +68,7 @@
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(216, 22);
             this.tbxNombre.TabIndex = 13;
-            this.tbxNombre.TextChanged += new System.EventHandler(this.tbxNombre_TextChanged);
+           // this.tbxNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxNombre_KeyUp);
             // 
             // button2
             // 
@@ -80,7 +80,6 @@
             this.button2.TabIndex = 58;
             this.button2.Text = "Modificar";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -118,6 +117,7 @@
             this.Controls.Add(this.dgvMedicos);
             this.Name = "BuscarMedico";
             this.Text = "BuscarMedico";
+            this.Load += new System.EventHandler(this.BuscarMedico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

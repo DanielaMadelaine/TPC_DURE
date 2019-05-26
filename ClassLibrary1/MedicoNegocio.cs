@@ -13,6 +13,69 @@ namespace Negocio
     {
 
 
+
+
+        public List<Medicos> Cargar_medicos()
+        {
+
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+            SqlDataReader lector;
+
+            ///////////////////////////////////////////////////////////
+           
+            Medicos auxm;
+            Especialidades auxe;
+            List<Medicos> listado = new List<Medicos>();
+            try
+            {
+
+
+                conexion.ConnectionString = AccesoDatosManager.cadenaConexion;
+                comando.CommandType = System.Data.CommandType.Text;
+
+                comando.CommandText = "select M.IDMEDICO,M.NOMBRE,M.APELLIDO,E.IDESPECIALIDAD,E.DESCRIPCION,M.DNI, M.FECHAINGRESO From MEDICOS M, ESPECIALIDADES E Where M.IDESPECIALIDAD=E.IDESPECIALIDAD";
+                comando.Connection = conexion;
+                conexion.Open();
+                lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    auxm = new Medicos();
+                    auxe = new Especialidades();
+
+                    auxm.IdMedico = lector.GetInt32(0);
+                    auxm.Nombre = lector.GetString(1);
+                    auxm.Apellido = lector.GetString(2);
+                    auxm.Especialidad = auxe;
+                    auxe.idespecialidad = lector.GetInt32(3);
+                    auxe.descripcion = lector.GetString(4);
+                    auxm.DNI = lector.GetString(5);
+                    auxm.FechaIngreso = lector.GetDateTime(6);
+
+                    listado.Add(auxm);
+
+                }
+
+                return listado;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+
+        }
+
+    
+
+
+
         public List<Medicos> listarMedicos()
         {
             SqlConnection conexion = new SqlConnection();
