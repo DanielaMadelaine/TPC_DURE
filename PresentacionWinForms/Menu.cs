@@ -41,6 +41,22 @@ namespace PresentacionWinForms
             ventana.ShowDialog();
         }
 
-       
+        private void modificarMedicosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarMedico ventana = new ModificarMedico();
+            ventana.ShowDialog();
+        }
+
+        private void eliminarMedicosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EliminarMedico ventana = new EliminarMedico();
+            ventana.ShowDialog();
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BuscarMedico ventana = new BuscarMedico();
+            ventana.ShowDialog();
+        }
     }
 }

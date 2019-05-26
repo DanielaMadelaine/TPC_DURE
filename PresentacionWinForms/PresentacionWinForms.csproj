@@ -107,6 +107,12 @@
     <Compile Include="AltaPaciente.Designer.cs">
       <DependentUpon>AltaPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarMedico.Designer.cs">
+      <DependentUpon>ModificarMedico.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificarPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AltaPaciente.resx">
       <DependentUpon>AltaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarMedico.resx">
+      <DependentUpon>ModificarMedico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarTurno.resx">
       <DependentUpon>ModificarTurno.cs</DependentUpon>

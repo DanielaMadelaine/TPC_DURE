@@ -11,22 +11,27 @@ namespace Negocio
 {
     public class MedicoNegocio
     {
-        private readonly Medicos New;
+
 
         public List<Medicos> listarMedicos()
         {
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
             SqlDataReader lector;
+
+            ///////////////////////////////////////////////////////////
             List<Medicos> listado = new List<Medicos>();
             Medicos nuevo;
+            Especialidades aux;
+
+
             try
             {
                 
                 conexion.ConnectionString = AccesoDatosManager.cadenaConexion;
                 comando.CommandType = System.Data.CommandType.Text;
-                //MSF-20190420: agregué todos los datos del heroe. Incluso su universo, que lo traigo con join.
-                comando.CommandText = "select M.IDMEDICO,M.FECHAINGRESO,E.IDESPECIALIDAD,E.DESCRIPCION, M.NOMBRE,M.APELLIDO From MEDICOS M, ESPECIALIDADES E Where M.IDESPECIALIDAD=E.IDESPECIALIDAD";
+     
+                comando.CommandText = "select M.IDMEDICO,M.NOMBRE,M.APELLIDO,E.IDESPECIALIDAD,E.DESCRIPCION,M.DNI, M.FECHAINGRESO From MEDICOS M, ESPECIALIDADES E Where M.IDESPECIALIDAD=E.IDESPECIALIDAD";
                 comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
@@ -34,10 +39,19 @@ namespace Negocio
                 while (lector.Read())
                 {
                     nuevo = new Medicos();
-                   //nuevo.IdMedico = lector.GetInt32(0);
-                   nuevo.Nombre = lector.GetString(3);
-                   nuevo.Apellido= lector.GetString(4);
-                   // nuevo.FechaIngreso = lector.GetDateTime(5);
+                    aux = new Especialidades();
+
+
+                    nuevo.IdMedico = lector.GetInt32(0);
+                    nuevo.Nombre = lector.GetString(1);
+                    nuevo.Apellido= lector.GetString(2);
+                    nuevo.Especialidad = aux;
+                    aux.idespecialidad = lector.GetInt32(3);
+                    aux.descripcion = lector.GetString(4);
+                    nuevo.DNI = lector.GetString(5);
+                    nuevo.FechaIngreso = lector.GetDateTime(6);
+
+
                     //MSF-20190420: acá manejamos un posible nulo desde la DB. Recuerdan que la otra vez nos falló?
                     //Era porque en la DB estaba nulo y acá lo queríamos tomar y no le gustaba.
                     //Ojo... en la tabla no todas las columnas van a ser nuleables... en nuestro caso porque no le dimos
@@ -52,10 +66,10 @@ namespace Negocio
 
                      if (!Convert.IsDBNull(lector["Volador"]))
                          nuevo.Volador = (bool)lector["Volador"];
- */
-                    nuevo.Especialidad = new Especialidades();
-                    nuevo.Especialidad.idespecialidad = (int)lector["IdEspecialidad"];
-                    nuevo.Especialidad.descripcion = lector["Descripcion"].ToString();
+
+                    */
+
+                 
 
                     listado.Add(nuevo);
                 }                    

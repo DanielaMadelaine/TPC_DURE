@@ -28,25 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvProfesionales = new System.Windows.Forms.DataGridView();
+            this.dgvMedicos = new System.Windows.Forms.DataGridView();
             this.lblNombre = new System.Windows.Forms.Label();
             this.tbxNombre = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).BeginInit();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvProfesionales
+            // dgvMedicos
             // 
-            this.dgvProfesionales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfesionales.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvProfesionales.Location = new System.Drawing.Point(43, 155);
-            this.dgvProfesionales.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvProfesionales.MultiSelect = false;
-            this.dgvProfesionales.Name = "dgvProfesionales";
-            this.dgvProfesionales.RowTemplate.ReadOnly = true;
-            this.dgvProfesionales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProfesionales.Size = new System.Drawing.Size(707, 169);
-            this.dgvProfesionales.TabIndex = 1;
+            this.dgvMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMedicos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvMedicos.Location = new System.Drawing.Point(43, 155);
+            this.dgvMedicos.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvMedicos.MultiSelect = false;
+            this.dgvMedicos.Name = "dgvMedicos";
+            this.dgvMedicos.RowTemplate.ReadOnly = true;
+            this.dgvMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMedicos.Size = new System.Drawing.Size(707, 169);
+            this.dgvMedicos.TabIndex = 1;
             // 
             // lblNombre
             // 
@@ -66,30 +68,57 @@
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(216, 22);
             this.tbxNombre.TabIndex = 13;
+            this.tbxNombre.TextChanged += new System.EventHandler(this.tbxNombre_TextChanged);
             // 
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(332, 378);
+            this.button2.Location = new System.Drawing.Point(114, 378);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 41);
+            this.button2.Size = new System.Drawing.Size(143, 41);
             this.button2.TabIndex = 58;
-            this.button2.Text = "Buscar";
+            this.button2.Text = "Modificar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(524, 378);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(124, 41);
+            this.button3.TabIndex = 60;
+            this.button3.Text = "Atrás";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(325, 378);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 41);
+            this.button1.TabIndex = 61;
+            this.button1.Text = "Eliminar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // BuscarMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tbxNombre);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.dgvProfesionales);
+            this.Controls.Add(this.dgvMedicos);
             this.Name = "BuscarMedico";
             this.Text = "BuscarMedico";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,9 +126,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvProfesionales;
+        private System.Windows.Forms.DataGridView dgvMedicos;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox tbxNombre;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
     }
 }
