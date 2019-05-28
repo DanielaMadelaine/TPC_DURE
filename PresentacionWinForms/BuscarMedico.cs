@@ -61,34 +61,36 @@ namespace PresentacionWinForms
 
         }
 
-        //private void tbxnombre_keyup(object sender, keyeventargs e)
-        //{
-        //    dataview mifiltro;
-
-        //    string salida = "";
-        //    string[] palabra_busqueda = this.tbxnombre.text.split(' ');
-
-        //    foreach (string palabra in palabra_busqueda)
-        //    {
-        //        if (salida.length == 0)
-        //        {
-        //            salida = "(nombre like '% " + palabra + "%' or apellido like ' % " + palabra + "%')";
-        //        }
-        //        else
-        //        {
-        //            salida += "and (nombre like '% " + palabra + "%' or apellido like ' % " + palabra + "%')";
-        //        }
-        //    }
-
-          
-
-            
-
-
-
-
 
 
         
+
+        private void tbxNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxNombre.Text == "")
+            {
+                dgvMedicos.DataSource = listaLocal;
+            }
+            else
+            {
+                List<Medicos> lista;
+                lista = listaLocal.FindAll(X => X.Nombre.Contains(tbxNombre.Text));
+                dgvMedicos.DataSource = lista;
+            }
+        }
+
+
+        
+
+
+
+
+
+
+
+
+      
+
+
     }
 }

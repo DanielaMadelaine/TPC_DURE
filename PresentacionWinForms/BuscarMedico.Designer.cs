@@ -68,7 +68,7 @@
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(216, 22);
             this.tbxNombre.TabIndex = 13;
-           // this.tbxNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxNombre_KeyUp);
+            this.tbxNombre.TextChanged += new System.EventHandler(this.tbxNombre_TextChanged);
             // 
             // button2
             // 
