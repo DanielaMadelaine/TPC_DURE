@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDni = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbNombre = new System.Windows.Forms.TextBox();
+            this.txbApellido = new System.Windows.Forms.TextBox();
+            this.txtDNI = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -42,7 +42,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxEspecialidad = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -78,32 +78,32 @@
             this.lblDni.TabIndex = 18;
             this.lblDni.Text = "DNI: ";
             // 
-            // textBox7
+            // txbNombre
             // 
-            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(143, 33);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(140, 25);
-            this.textBox7.TabIndex = 49;
+            this.txbNombre.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNombre.Location = new System.Drawing.Point(143, 33);
+            this.txbNombre.Multiline = true;
+            this.txbNombre.Name = "txbNombre";
+            this.txbNombre.Size = new System.Drawing.Size(140, 25);
+            this.txbNombre.TabIndex = 49;
             // 
-            // textBox1
+            // txbApellido
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(143, 80);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 25);
-            this.textBox1.TabIndex = 50;
+            this.txbApellido.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbApellido.Location = new System.Drawing.Point(143, 80);
+            this.txbApellido.Multiline = true;
+            this.txbApellido.Name = "txbApellido";
+            this.txbApellido.Size = new System.Drawing.Size(140, 25);
+            this.txbApellido.TabIndex = 50;
             // 
-            // textBox2
+            // txtDNI
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(143, 129);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(140, 25);
-            this.textBox2.TabIndex = 51;
+            this.txtDNI.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDNI.Location = new System.Drawing.Point(143, 129);
+            this.txtDNI.Multiline = true;
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Size = new System.Drawing.Size(140, 25);
+            this.txtDNI.TabIndex = 51;
             // 
             // textBox3
             // 
@@ -196,25 +196,25 @@
             this.label3.TabIndex = 59;
             this.label3.Text = "Especialidad:";
             // 
-            // comboBox1
+            // cbxEspecialidad
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbxEspecialidad.FormattingEnabled = true;
+            this.cbxEspecialidad.Items.AddRange(new object[] {
             "Ginecologia",
             "Clinico Médico",
             "Nutrición",
             "Cardiología"});
-            this.comboBox1.Location = new System.Drawing.Point(514, 160);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 25);
-            this.comboBox1.TabIndex = 60;
+            this.cbxEspecialidad.Location = new System.Drawing.Point(514, 160);
+            this.cbxEspecialidad.Name = "cbxEspecialidad";
+            this.cbxEspecialidad.Size = new System.Drawing.Size(121, 25);
+            this.cbxEspecialidad.TabIndex = 60;
             // 
             // AltaMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 478);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxEspecialidad);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -223,9 +223,9 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtDNI);
+            this.Controls.Add(this.txbApellido);
+            this.Controls.Add(this.txbNombre);
             this.Controls.Add(this.lblDni);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.label1);
@@ -244,9 +244,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblDni;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbNombre;
+        private System.Windows.Forms.TextBox txbApellido;
+        private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -255,6 +255,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxEspecialidad;
     }
 }

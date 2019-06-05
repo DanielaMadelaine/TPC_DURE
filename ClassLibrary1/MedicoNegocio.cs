@@ -152,6 +152,43 @@ namespace Negocio
 
 
 
+        public void AgregarMedicos( Medicos adoctor)
+        {
+
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+            try
+            {
+                conexion.ConnectionString = AccesoDatosManager.cadenaConexion;
+                comando.CommandType = System.Data.CommandType.Text;
+                //MSF-20190420: le agregué todas las columnas. Teniendo en cuenta inclusive lo que elegimos en el combo de selección..
+                comando.CommandText = "insert into MEDICOS (Idmedico,Nombre,Apellido,DNI, FechaIngreso, IdEspecialidad) values";
+                comando.CommandText += "('" + adoctor.Nombre + "', '" + adoctor.Apellido+ "', '" + adoctor.DNI + "', '" + adoctor.FechaIngreso.ToString() + "'," + adoctor.Especialidad.ToString() + ")";
+                comando.Connection = conexion;
+                conexion.Open();
+
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+
+        }
+
+
+
+
+
+
+
+
 
     }
 }
