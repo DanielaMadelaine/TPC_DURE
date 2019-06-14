@@ -14,7 +14,9 @@ namespace Dominio
         public String Apellido { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public String DNI { get; set; }
-        public List<Telefonos> Telefono { get; set; }
+        public string Sexo { get; set; }
+        public string Telephone { get; set; }
+        public string TipoTel { get; set; }
         public Direccion Direcc { get; set; }
         public String Email { get; set; }
 

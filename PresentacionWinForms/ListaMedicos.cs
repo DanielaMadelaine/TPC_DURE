@@ -40,15 +40,15 @@ namespace PresentacionWinForms
                 ///// ME TIRA TODO DESPUES RESTRINGIR EN CADA CASO.
                 listaLocal = negocio.listarMedicos();
                 dgv_medicos.DataSource = listaLocal;
-                dgv_medicos.Columns[0].Visible =false;
+                //dgv_medicos.Columns[0].Visible =false;
                 //dgv_medicos.Columns[1].Visible = false;
                 //dgv_medicos.Columns[2].Visible = false;
                 //dgv_medicos.Columns[3].Visible = false; 
                 //dgv_medicos.Columns[4].Visible = false; 
-                dgv_medicos.Columns[5].Visible = false;
+                //dgv_medicos.Columns[5].Visible = false;
                 //dgv_medicos.Columns[6].Visible = false;  //DNI
-                dgv_medicos.Columns[7].Visible = false; //DIRECCION
-                dgv_medicos.Columns[8].Visible = false; //EMAIL
+                //dgv_medicos.Columns[7].Visible = false; //DIRECCION
+                //dgv_medicos.Columns[8].Visible = false; //EMAIL
 
 
 

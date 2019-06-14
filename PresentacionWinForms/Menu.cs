@@ -31,21 +31,36 @@ namespace PresentacionWinForms
 
         private void altaMedicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AltaMedico ventana = new AltaMedico();
-            ventana.ShowDialog();
+
+            try
+            {
+                AltaMedico ventana = new AltaMedico();
+                ventana.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         private void listaMedicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListaMedicos ventana = new ListaMedicos();
-            ventana.ShowDialog();
+            try
+            {
+                ListaMedicos ventana = new ListaMedicos();
+                ventana.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+           
         }
 
-        private void modificarMedicosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ModificarMedico ventana = new ModificarMedico();
-            ventana.ShowDialog();
-        }
+       
 
         private void eliminarMedicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -55,8 +70,20 @@ namespace PresentacionWinForms
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BuscarMedico ventana = new BuscarMedico();
-            ventana.ShowDialog();
+            try
+            {
+                BuscarMedico ventana = new BuscarMedico();
+                ventana.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+
+                MessageBox.Show(ex.ToString());
+            }
+           
         }
+
+        
     }
 }

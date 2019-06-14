@@ -16,12 +16,26 @@ namespace PresentacionWinForms
     {
 
 
-        Medicos medicolocal = null;
+        private Medicos medicolocal = null;
+        
+
 
         public AltaMedico()
         {
             InitializeComponent();
+           
         }
+
+
+        public AltaMedico(Medicos doctor)
+        {
+            InitializeComponent();
+            medicolocal = doctor;
+
+        }
+
+
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -31,30 +45,43 @@ namespace PresentacionWinForms
         private void button1_Click(object sender, EventArgs e)
         {
             MedicoNegocio negocio = new MedicoNegocio();
+           
+
             try
             {
-                //MSF-20190420: ahora pasamos a usar siempre la variable heroeLocal, si vino algo de afuera, lo usamos
-                //pero sino, tenemos que crear un heroe nuevo.
+              
                 if (medicolocal == null)
-                    medicolocal = new Medicos();
 
+                medicolocal = new Medicos();
+                medicolocal.Direcc = new Direccion();
+
+               // medicolocal.IdMedico = int.Parse(textBox3.Text);
                 medicolocal.Nombre = txbNombre.Text;
                 medicolocal.Apellido = txbApellido.Text;
                 medicolocal.DNI = txtDNI.Text;
-                //medicolocal.Volador = ckbVuela.Checked;
                 medicolocal.Especialidad = (Especialidades)cbxEspecialidad.SelectedItem;
-
-                //MSF-20190420: si el heroe tienen ID es porque vino uno existente de afuera, entonces lo modifico.
-                //Sino, es porque lo acabo de crear, entonces lo mando a agregar.
-                // if (medicolocal.Id != 0)
-                //{
-                //  negocio.modificarHeroe(heroeLocal);
-                //}
-                //else
-                //{
-                //negocio.agregarHeroe(heroeLocal);
-                // }
-                negocio.AgregarMedicos(medicolocal);
+                medicolocal.FechaNacimiento = Nacimiento.Value;
+                medicolocal.Email = txbEmail.Text;
+                if (rbtMasculino.Checked == true) { medicolocal.Sexo = "M"; } else { medicolocal.Sexo = "F"; }
+                medicolocal.Telephone = txbTelefono.Text;
+                medicolocal.matricula = txbMatricula.Text;
+                medicolocal.TipoTel = (string)comboBoxTipoTel.SelectedItem;
+                medicolocal.Direcc.Localidad = txbLocalidad.Text;
+                medicolocal.Direcc.CodigoPostal = txbCP.Text;
+                medicolocal.Direcc.Calle = txbDomicilio.Text;
+                medicolocal.Direcc.Provincia = (string)comboBoxPROV.SelectedItem;
+                
+                 if (medicolocal.IdMedico != 0)
+                {
+                      negocio.modificarMedico(medicolocal);
+                    MessageBox.Show("Modificado Correctamente  :)");
+                }
+                else
+                {
+                    negocio.AgregarMedicos(medicolocal);
+                    MessageBox.Show("Agregado Correctamente");
+                }
+                
                 Close();
 
             }
@@ -63,6 +90,67 @@ namespace PresentacionWinForms
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void AltaMedico_Load(object sender, EventArgs e)
+        {
+          
+                EspecialidadNegocio SpecialidadNegocio = new EspecialidadNegocio();
+            try
+            {
+                cbxEspecialidad.DataSource = SpecialidadNegocio.listarEspecialidades();
+
+                if (medicolocal != null)
+                {
+
+                    txbNombre.Text = medicolocal.Nombre;
+                    txbApellido.Text = medicolocal.Apellido;
+                    //ckbCapa.Checked = medicolocal.UsaCapa;
+                    //ckbVuela.Checked = medicolocal.Volador;
+                    //cboUniverso.SelectedIndex = cboUniverso.FindString(heroeLocal.Universo.Nombre);
+
+                    //alternativa al retomar una modificacion. Si tenes configurado Display y Value Member
+                    //cboUniverso.SelectedValue = heroeLocal.Universo.Id;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+                
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                HorariosMedicos form = new HorariosMedicos();
+                form.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+           
+        }
+
+
+
+
+
+
+
+
+
     }
-    
 }
+
+
+        
+    
+    
+

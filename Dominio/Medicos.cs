@@ -10,6 +10,7 @@ namespace Dominio
         public int IdMedico { get; set; } 
         public DateTime FechaIngreso { get; set; }
         public Especialidades Especialidad { get; set; }
+        public string matricula { get; set; }
     }
 
 

@@ -13,68 +13,7 @@ namespace Negocio
     {
 
 
-
-
-        public List<Medicos> Cargar_medicos()
-        {
-
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
-
-            ///////////////////////////////////////////////////////////
-           
-            Medicos auxm;
-            Especialidades auxe;
-            List<Medicos> listado = new List<Medicos>();
-            try
-            {
-
-
-                conexion.ConnectionString = AccesoDatosManager.cadenaConexion;
-                comando.CommandType = System.Data.CommandType.Text;
-
-                comando.CommandText = "select M.IDMEDICO,M.NOMBRE,M.APELLIDO,E.IDESPECIALIDAD,E.DESCRIPCION,M.DNI, M.FECHAINGRESO From MEDICOS M, ESPECIALIDADES E Where M.IDESPECIALIDAD=E.IDESPECIALIDAD";
-                comando.Connection = conexion;
-                conexion.Open();
-                lector = comando.ExecuteReader();
-
-                while (lector.Read())
-                {
-                    auxm = new Medicos();
-                    auxe = new Especialidades();
-
-                    auxm.IdMedico = lector.GetInt32(0);
-                    auxm.Nombre = lector.GetString(1);
-                    auxm.Apellido = lector.GetString(2);
-                    auxm.Especialidad = auxe;
-                    auxe.idespecialidad = lector.GetInt32(3);
-                    auxe.descripcion = lector.GetString(4);
-                    auxm.DNI = lector.GetString(5);
-                    auxm.FechaIngreso = lector.GetDateTime(6);
-
-                    listado.Add(auxm);
-
-                }
-
-                return listado;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                conexion.Close();
-            }
-
-
-        }
-
-    
-
-
+       
 
         public List<Medicos> listarMedicos()
         {
@@ -94,7 +33,7 @@ namespace Negocio
                 conexion.ConnectionString = AccesoDatosManager.cadenaConexion;
                 comando.CommandType = System.Data.CommandType.Text;
      
-                comando.CommandText = "select M.IDMEDICO,M.NOMBRE,M.APELLIDO,E.IDESPECIALIDAD,E.DESCRIPCION,M.DNI, M.FECHAINGRESO From MEDICOS M, ESPECIALIDADES E Where M.IDESPECIALIDAD=E.IDESPECIALIDAD";
+                comando.CommandText = "SELECT M.NOMBRE,M.APELLIDO,M.NMATRICULA,E.DESCRIPCION FROM MEDICOS M LEFT JOIN ESPECIALIDADES E ON M.IDESPECIALIDAD = E.IDESPECIALIDAD";
                 comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
@@ -105,14 +44,15 @@ namespace Negocio
                     aux = new Especialidades();
 
 
-                    nuevo.IdMedico = lector.GetInt32(0);
-                    nuevo.Nombre = lector.GetString(1);
-                    nuevo.Apellido= lector.GetString(2);
+                    //nuevo.IdMedico = lector.GetInt32(0);
+                    nuevo.Nombre = lector.GetString(0);
+                    nuevo.Apellido= lector.GetString(1);
+                    nuevo.matricula = lector.GetString(2);
                     nuevo.Especialidad = aux;
-                    aux.idespecialidad = lector.GetInt32(3);
-                    aux.descripcion = lector.GetString(4);
-                    nuevo.DNI = lector.GetString(5);
-                    nuevo.FechaIngreso = lector.GetDateTime(6);
+                    //aux.idespecialidad = lector.GetInt32(3);
+                    aux.descripcion = lector.GetString(3);
+                    //nuevo.DNI = lector.GetString(5);
+                    //nuevo.FechaIngreso = lector.GetDateTime(6);
 
 
                     //MSF-20190420: acá manejamos un posible nulo desde la DB. Recuerdan que la otra vez nos falló?
@@ -162,8 +102,10 @@ namespace Negocio
                 conexion.ConnectionString = AccesoDatosManager.cadenaConexion;
                 comando.CommandType = System.Data.CommandType.Text;
                 //MSF-20190420: le agregué todas las columnas. Teniendo en cuenta inclusive lo que elegimos en el combo de selección..
-                comando.CommandText = "insert into MEDICOS (Idmedico,Nombre,Apellido,DNI, FechaIngreso, IdEspecialidad) values";
-                comando.CommandText += "('" + adoctor.Nombre + "', '" + adoctor.Apellido+ "', '" + adoctor.DNI + "', '" + adoctor.FechaIngreso.ToString() + "'," + adoctor.Especialidad.ToString() + ")";
+                comando.CommandText = "insert into MEDICOS (Nombre,Apellido,DNI, IdEspecialidad, FechaNac,Email,Sexo,Telefono,NMatricula,tipotel,cp,localidad,provincia,direccion) values";
+                comando.CommandText += "( '" + adoctor.Nombre + "', '" + adoctor.Apellido+ "', " + adoctor.DNI + "," + adoctor.Especialidad.idespecialidad.ToString() + ", '" +
+                adoctor.FechaNacimiento.ToShortDateString() +"', '"+adoctor.Email+"','"+ adoctor.Sexo +"','"+ adoctor.Telephone +"', '"+adoctor.matricula+"','"+adoctor.TipoTel+"'," +
+                ""+adoctor.Direcc.CodigoPostal.ToString()+",'"+adoctor.Direcc.Localidad+"','"+adoctor.Direcc.Provincia+"' , '"+adoctor.Direcc.Calle+"'      )";
                 comando.Connection = conexion;
                 conexion.Open();
 
@@ -180,7 +122,44 @@ namespace Negocio
             }
 
 
+
+
         }
+
+        public void modificarMedico (Medicos modificar)
+        {
+            AccesoDatosManager accesoDatos = new AccesoDatosManager();
+            try
+            {
+
+               // accesoDatos.setearConsulta("Exec Modificarmedico set Nombre = @Nombre, Apellido = @Apellido Where Idmedico = @id");
+                accesoDatos.setearSP("modificarmedico");
+                //accesoDatos.setearConsulta("update MEDICOS Set Nombre= '"+modificar.Nombre+"', Apellido='"+modificar.Apellido+"',  Idespecialidad="+modificar.Especialidad.idespecialidad.ToString()+" Where Id=" + modificar.IdMedico.ToString());
+                accesoDatos.Comando.Parameters.Clear();
+                 accesoDatos.Comando.Parameters.AddWithValue("@Nombre", modificar.Nombre);
+                 accesoDatos.Comando.Parameters.AddWithValue("@Apellido", modificar.Apellido);
+                //accesoDatos.Comando.Parameters.AddWithValue("@UC", modificar.UsaCapa);
+                //accesoDatos.Comando.Parameters.AddWithValue("@Vol", modificar.Volador);
+                // accesoDatos.Comando.Parameters.AddWithValue("@Idespecialidades", modificar.Especialidad.idespecialida);
+               // accesoDatos.Comando.Parameters.AddWithValue("@id", modificar.IdMedico);
+                accesoDatos.abrirConexion();
+                accesoDatos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+
+
+
+
 
 
 

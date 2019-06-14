@@ -17,6 +17,7 @@ namespace PresentacionWinForms
     {
 
         private List<Medicos> listaLocal;
+        
 
         public BuscarMedico()
         {
@@ -36,7 +37,7 @@ namespace PresentacionWinForms
 
         {
             MedicoNegocio negocio = new MedicoNegocio();
-            listaLocal = negocio.Cargar_medicos();
+            listaLocal = negocio.listarMedicos();
 
             dgvMedicos.DataSource = listaLocal;
             dgvMedicos.Columns[0].Visible = false;
@@ -44,10 +45,10 @@ namespace PresentacionWinForms
             //dgv_medicos.Columns[2].Visible = false;
             //dgv_medicos.Columns[3].Visible = false; 
             //dgv_medicos.Columns[4].Visible = false; 
-            dgvMedicos.Columns[5].Visible = false;
+           // dgvMedicos.Columns[5].Visible = false;
             //dgv_medicos.Columns[6].Visible = false;  //DNI
-            dgvMedicos.Columns[7].Visible = false; //DIRECCION
-            dgvMedicos.Columns[8].Visible = false; //EMAIL
+            //dgvMedicos.Columns[7].Visible = false; //DIRECCION
+            //dgvMedicos.Columns[8].Visible = false; //EMAIL
         }
 
 
@@ -79,18 +80,29 @@ namespace PresentacionWinForms
             }
         }
 
-
-        
-
-
-
-
-
-
-
-
-      
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AltaMedico form = new AltaMedico((Medicos)dgvMedicos.CurrentRow.DataBoundItem);
+                form.ShowDialog();
+                CargarMedicos();
 
 
+
+                //frmAltaSuperheroe modificar = new frmAltaSuperheroe((Heroe)dgvPersonajes.CurrentRow.DataBoundItem);
+                //modificar.ShowDialog();
+                //cargarGrilla();
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+               
+            } 
+        }
     }
 }

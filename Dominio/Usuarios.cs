@@ -9,7 +9,8 @@ namespace Dominio
     {
         public string Cargo { get; set; }
         public int id { get; set; }
-        
+        public string Pass { get; set; }
+
 
     }
 }

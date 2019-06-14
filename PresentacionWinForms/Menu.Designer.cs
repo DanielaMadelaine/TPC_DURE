@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.turnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialDeTurnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,6 @@
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +65,6 @@
             this.medicosToolStripMenuItem,
             this.especialidadesToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.salirToolStripMenuItem,
             this.salirToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -124,6 +123,7 @@
             // 
             // altaToolStripMenuItem
             // 
+            this.altaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("altaToolStripMenuItem.Image")));
             this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
             this.altaToolStripMenuItem.Size = new System.Drawing.Size(226, 28);
             this.altaToolStripMenuItem.Text = "Alta";
@@ -163,6 +163,7 @@
             this.medicosToolStripMenuItem.Name = "medicosToolStripMenuItem";
             this.medicosToolStripMenuItem.Size = new System.Drawing.Size(85, 27);
             this.medicosToolStripMenuItem.Text = "Medicos";
+            
             // 
             // buscarToolStripMenuItem
             // 
@@ -173,6 +174,7 @@
             // 
             // altaMedicosToolStripMenuItem
             // 
+            this.altaMedicosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("altaMedicosToolStripMenuItem.Image")));
             this.altaMedicosToolStripMenuItem.Name = "altaMedicosToolStripMenuItem";
             this.altaMedicosToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
             this.altaMedicosToolStripMenuItem.Text = "Alta Medicos";
@@ -204,6 +206,7 @@
             // 
             // agregarNuevaToolStripMenuItem
             // 
+            this.agregarNuevaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("agregarNuevaToolStripMenuItem.Image")));
             this.agregarNuevaToolStripMenuItem.Name = "agregarNuevaToolStripMenuItem";
             this.agregarNuevaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.agregarNuevaToolStripMenuItem.Text = "Agregar Nueva";
@@ -231,16 +234,10 @@
             // 
             // cambiarDeUsuarioToolStripMenuItem
             // 
+            this.cambiarDeUsuarioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cambiarDeUsuarioToolStripMenuItem.Image")));
             this.cambiarDeUsuarioToolStripMenuItem.Name = "cambiarDeUsuarioToolStripMenuItem";
             this.cambiarDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(237, 28);
             this.cambiarDeUsuarioToolStripMenuItem.Text = "Cambiar de Usuario";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(70, 27);
-            this.salirToolStripMenuItem.Text = "Ayuda";
             // 
             // salirToolStripMenuItem1
             // 
@@ -278,7 +275,6 @@
         private System.Windows.Forms.ToolStripMenuItem pacientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem medicosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialDeTurnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoTurnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;

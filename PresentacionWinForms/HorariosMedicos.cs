@@ -11,12 +11,12 @@ using Dominio;
 
 namespace PresentacionWinForms
 {
-    public partial class ModificarMedico : Form
+    public partial class HorariosMedicos : Form
     {
         
 
 
-        public ModificarMedico()
+        public HorariosMedicos()
         {
             InitializeComponent();
         }

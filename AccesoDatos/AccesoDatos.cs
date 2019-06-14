@@ -11,7 +11,7 @@ namespace AccesoDatos
     
         public class AccesoDatosManager
         {
-            public static string cadenaConexion = "data source=DESKTOP-5M3N59B\\SQLEXPRESS; initial catalog=DURE_DB; integrated security=sspi";
+            public static string cadenaConexion = "data source=DESKTOP-5M3N59B\\SQLEXPRESS; initial catalog=DB_DURE; integrated security=sspi";
             private SqlCommand comando;
             private SqlConnection conexion;
             private SqlDataReader lector;
