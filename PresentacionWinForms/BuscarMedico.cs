@@ -104,5 +104,41 @@ namespace PresentacionWinForms
                
             } 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MedicoNegocio negocio = new MedicoNegocio();
+            try
+            {
+                
+                if (dgvMedicos.SelectedRows.Count > 0)
+                {
+                    if (MessageBox.Show("Está seguro de que desea eliminar el registro?", "Confirmacion", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        //unGestorClientes.eliminarLogico((int)dgwClientes.CurrentRow.Cells[0].Value);
+                        negocio.eliminarLogico((int)dgvMedicos.CurrentRow.Cells[0].Value);
+                        MessageBox.Show("Cliente eliminado");
+
+                        CargarMedicos();
+
+                       
+                        
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un registro");
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+        }
     }
 }

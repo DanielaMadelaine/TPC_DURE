@@ -33,7 +33,7 @@ namespace Negocio
                 conexion.ConnectionString = AccesoDatosManager.cadenaConexion;
                 comando.CommandType = System.Data.CommandType.Text;
      
-                comando.CommandText = "SELECT M.NOMBRE,M.APELLIDO,M.NMATRICULA,E.DESCRIPCION FROM MEDICOS M LEFT JOIN ESPECIALIDADES E ON M.IDESPECIALIDAD = E.IDESPECIALIDAD";
+                comando.CommandText = "SELECT M.IDMEDICO,M.NOMBRE,M.APELLIDO,M.NMATRICULA,E.DESCRIPCION,M.ESTADO FROM MEDICOS M LEFT JOIN ESPECIALIDADES E ON M.IDESPECIALIDAD = E.IDESPECIALIDAD";
                 comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
@@ -44,13 +44,14 @@ namespace Negocio
                     aux = new Especialidades();
 
 
-                    //nuevo.IdMedico = lector.GetInt32(0);
-                    nuevo.Nombre = lector.GetString(0);
-                    nuevo.Apellido= lector.GetString(1);
-                    nuevo.matricula = lector.GetString(2);
+                    nuevo.IdMedico = (int)lector["IdMedico"];
+                    nuevo.Nombre = lector.GetString(1);
+                    nuevo.Apellido= lector.GetString(2);
+                    nuevo.matricula = lector.GetString(3);
                     nuevo.Especialidad = aux;
                     //aux.idespecialidad = lector.GetInt32(3);
-                    aux.descripcion = lector.GetString(3);
+                    aux.descripcion = lector.GetString(4);
+                    nuevo.Estado = lector.GetBoolean(5);
                     //nuevo.DNI = lector.GetString(5);
                     //nuevo.FechaIngreso = lector.GetDateTime(6);
 
@@ -72,9 +73,12 @@ namespace Negocio
 
                     */
 
-                 
 
-                    listado.Add(nuevo);
+                    if (nuevo.Estado)
+                    {
+                        listado.Add(nuevo);
+                    }
+                   
                 }                    
 
                 return listado;
@@ -141,7 +145,7 @@ namespace Negocio
                 //accesoDatos.Comando.Parameters.AddWithValue("@UC", modificar.UsaCapa);
                 //accesoDatos.Comando.Parameters.AddWithValue("@Vol", modificar.Volador);
                 // accesoDatos.Comando.Parameters.AddWithValue("@Idespecialidades", modificar.Especialidad.idespecialida);
-               // accesoDatos.Comando.Parameters.AddWithValue("@id", modificar.IdMedico);
+                accesoDatos.Comando.Parameters.AddWithValue("@id", modificar.IdMedico);
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarAccion();
 
@@ -156,6 +160,26 @@ namespace Negocio
             }
         }
 
+
+
+        public void eliminarLogico(int id)
+        {
+            AccesoDatosManager conexion;
+            try
+            {
+                conexion = new AccesoDatosManager();
+                conexion.setearConsulta("Update MEDICOS Set estado = 0 Where Idmedico=@id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
 
 

@@ -54,7 +54,7 @@ namespace PresentacionWinForms
 
                 medicolocal = new Medicos();
                 medicolocal.Direcc = new Direccion();
-
+             
                // medicolocal.IdMedico = int.Parse(textBox3.Text);
                 medicolocal.Nombre = txbNombre.Text;
                 medicolocal.Apellido = txbApellido.Text;

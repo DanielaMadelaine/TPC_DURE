@@ -7,8 +7,12 @@ namespace Dominio
 {
     public class Horarios
     {
-        public  DateTime HoraEntrada { get; set; }
-        public DateTime Horario { get; set; }
-        public List<String> DiasDisponibles { get; set; }
+        public bool lunes{ get; set; }
+        public bool martes { get; set; }
+        public bool miercoles { get; set; }
+        public bool jueves { get; set; }
+        public bool viernes { get; set; }
+        public DateTime duracionConsulta { get; set; }
+       
     }
 }

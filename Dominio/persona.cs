@@ -19,6 +19,7 @@ namespace Dominio
         public string TipoTel { get; set; }
         public Direccion Direcc { get; set; }
         public String Email { get; set; }
+        public bool Estado { get; set; }
 
 
     }
