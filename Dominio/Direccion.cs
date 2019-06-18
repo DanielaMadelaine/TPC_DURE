@@ -12,5 +12,12 @@ namespace Dominio
         public String Localidad { get; set; }
         public String CodigoPostal { get; set; }
         public String Provincia { get; set; }
+
+
+        public override string ToString()
+        {
+            return Localidad;
+        }
+
     }
 }

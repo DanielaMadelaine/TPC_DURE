@@ -25,6 +25,7 @@ namespace Negocio
             List<Medicos> listado = new List<Medicos>();
             Medicos nuevo;
             Especialidades aux;
+            Direccion aux1;
 
 
             try
@@ -33,7 +34,7 @@ namespace Negocio
                 conexion.ConnectionString = AccesoDatosManager.cadenaConexion;
                 comando.CommandType = System.Data.CommandType.Text;
      
-                comando.CommandText = "SELECT M.IDMEDICO,M.NOMBRE,M.APELLIDO,M.NMATRICULA,E.DESCRIPCION,M.ESTADO FROM MEDICOS M LEFT JOIN ESPECIALIDADES E ON M.IDESPECIALIDAD = E.IDESPECIALIDAD";
+                comando.CommandText = "SELECT M.IDMEDICO,M.NOMBRE,M.APELLIDO,M.NMATRICULA,E.DESCRIPCION,M.ESTADO,M.DNI,M.TELEFONO,M.FECHANAC,M.TIPOTEL,M.SEXO,M.EMAIL,M.localidad FROM MEDICOS M LEFT JOIN ESPECIALIDADES E ON M.IDESPECIALIDAD = E.IDESPECIALIDAD";
                 comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
@@ -42,6 +43,8 @@ namespace Negocio
                 {
                     nuevo = new Medicos();
                     aux = new Especialidades();
+                    aux1 = new Direccion();
+                    
 
 
                     nuevo.IdMedico = (int)lector["IdMedico"];
@@ -49,29 +52,19 @@ namespace Negocio
                     nuevo.Apellido= lector.GetString(2);
                     nuevo.matricula = lector.GetString(3);
                     nuevo.Especialidad = aux;
-                    //aux.idespecialidad = lector.GetInt32(3);
                     aux.descripcion = lector.GetString(4);
                     nuevo.Estado = lector.GetBoolean(5);
-                    //nuevo.DNI = lector.GetString(5);
-                    //nuevo.FechaIngreso = lector.GetDateTime(6);
+                    nuevo.DNI = lector.GetString(6);
+                    nuevo.Telephone = lector.GetString(7);
+                    nuevo.FechaNacimiento = lector.GetDateTime(8);
+                    nuevo.TipoTel = lector.GetString(9);
+                    nuevo.Sexo = lector.GetString(10);
+                    nuevo.Email = lector.GetString(11);
+                   // nuevo.Direcc.Localidad = lector.GetString(12);
+            
+                    nuevo.Direcc = aux1;
+                    aux1.Localidad=lector.GetString(12);
 
-
-                    //MSF-20190420: acá manejamos un posible nulo desde la DB. Recuerdan que la otra vez nos falló?
-                    //Era porque en la DB estaba nulo y acá lo queríamos tomar y no le gustaba.
-                    //Ojo... en la tabla no todas las columnas van a ser nuleables... en nuestro caso porque no le dimos
-                    //importancia casi al diseño de la misma. Pero si está bien armada la tabla, serán pocas las columnas
-                    //que sean nulleables. Solo a esa deberían agregarles ésta validación. Que de hecho pueden meter en un método
-                    //para no tener que escribirla completa cada vez, por ejemplo.
-                    //  if(!Convert.IsDBNull(lector["Debilidad"]))
-                    //     nuevo.Apellido = lector.GetString(2);
-
-                    /* if (!Convert.IsDBNull(lector["UsaCapa"]))
-                         nuevo.Email = (bool)lector["UsaCapa"];
-
-                     if (!Convert.IsDBNull(lector["Volador"]))
-                         nuevo.Volador = (bool)lector["Volador"];
-
-                    */
 
 
                     if (nuevo.Estado)
@@ -142,9 +135,10 @@ namespace Negocio
                 accesoDatos.Comando.Parameters.Clear();
                  accesoDatos.Comando.Parameters.AddWithValue("@Nombre", modificar.Nombre);
                  accesoDatos.Comando.Parameters.AddWithValue("@Apellido", modificar.Apellido);
-                //accesoDatos.Comando.Parameters.AddWithValue("@UC", modificar.UsaCapa);
-                //accesoDatos.Comando.Parameters.AddWithValue("@Vol", modificar.Volador);
-                // accesoDatos.Comando.Parameters.AddWithValue("@Idespecialidades", modificar.Especialidad.idespecialida);
+                accesoDatos.Comando.Parameters.AddWithValue("@DNI", modificar.DNI);
+                accesoDatos.Comando.Parameters.AddWithValue("@Email", modificar.Email);
+                accesoDatos.Comando.Parameters.AddWithValue("@telefono", modificar.Telephone);
+                accesoDatos.Comando.Parameters.AddWithValue("@TipoTel", modificar.TipoTel);
                 accesoDatos.Comando.Parameters.AddWithValue("@id", modificar.IdMedico);
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarAccion();

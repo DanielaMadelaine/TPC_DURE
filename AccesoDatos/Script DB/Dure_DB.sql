@@ -50,6 +50,7 @@ VALUES ('April','Kepner','332571','07/11/2016',5,'M','124578','daniela.dure@esca
 
 
 /*PROCEDURES*/
+go
 
 create procedure modificarmedico
 @Nombre varchar(50),

@@ -38,7 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxEspecialidad = new System.Windows.Forms.ComboBox();
@@ -105,6 +105,7 @@
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(155, 25);
             this.txbNombre.TabIndex = 49;
+            this.txbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNombre_KeyPress);
             // 
             // txbApellido
             // 
@@ -114,6 +115,7 @@
             this.txbApellido.Name = "txbApellido";
             this.txbApellido.Size = new System.Drawing.Size(140, 25);
             this.txbApellido.TabIndex = 50;
+            this.txbApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbApellido_KeyPress);
             // 
             // txtDNI
             // 
@@ -123,6 +125,7 @@
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(140, 25);
             this.txtDNI.TabIndex = 51;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // label2
             // 
@@ -158,16 +161,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnLimpiar
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(391, 560);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 50);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(347, 560);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(147, 50);
+            this.btnLimpiar.TabIndex = 57;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -175,7 +179,7 @@
             this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(648, 560);
+            this.button3.Location = new System.Drawing.Point(584, 560);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(163, 50);
             this.button3.TabIndex = 58;
@@ -275,6 +279,7 @@
             this.txbTelefono.Name = "txbTelefono";
             this.txbTelefono.Size = new System.Drawing.Size(141, 23);
             this.txbTelefono.TabIndex = 68;
+            this.txbTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTelefono_KeyPress);
             // 
             // label6
             // 
@@ -353,6 +358,7 @@
             this.txbMatricula.Name = "txbMatricula";
             this.txbMatricula.Size = new System.Drawing.Size(155, 25);
             this.txbMatricula.TabIndex = 76;
+            this.txbMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbMatricula_KeyPress);
             // 
             // txbCP
             // 
@@ -362,6 +368,7 @@
             this.txbCP.Name = "txbCP";
             this.txbCP.Size = new System.Drawing.Size(140, 25);
             this.txbCP.TabIndex = 82;
+            this.txbCP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbCP_KeyPress);
             // 
             // label11
             // 
@@ -413,6 +420,7 @@
             this.txbLocalidad.Name = "txbLocalidad";
             this.txbLocalidad.Size = new System.Drawing.Size(149, 23);
             this.txbLocalidad.TabIndex = 83;
+            this.txbLocalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbLocalidad_KeyPress);
             // 
             // AltaMedico
             // 
@@ -442,7 +450,7 @@
             this.Controls.Add(this.cbxEspecialidad);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -474,7 +482,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxEspecialidad;

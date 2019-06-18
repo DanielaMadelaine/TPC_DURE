@@ -41,8 +41,8 @@ namespace PresentacionWinForms
 
             dgvMedicos.DataSource = listaLocal;
             dgvMedicos.Columns[0].Visible = false;
-            //dgv_medicos.Columns[1].Visible = false;
-            //dgv_medicos.Columns[2].Visible = false;
+            dgvMedicos.Columns[1].Visible = false;
+           // dgvMedicos.Columns[2].Visible = false;
             //dgv_medicos.Columns[3].Visible = false; 
             //dgv_medicos.Columns[4].Visible = false; 
            // dgvMedicos.Columns[5].Visible = false;
@@ -87,13 +87,6 @@ namespace PresentacionWinForms
                 AltaMedico form = new AltaMedico((Medicos)dgvMedicos.CurrentRow.DataBoundItem);
                 form.ShowDialog();
                 CargarMedicos();
-
-
-
-                //frmAltaSuperheroe modificar = new frmAltaSuperheroe((Heroe)dgvPersonajes.CurrentRow.DataBoundItem);
-                //modificar.ShowDialog();
-                //cargarGrilla();
-
 
 
 
